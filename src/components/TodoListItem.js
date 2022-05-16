@@ -1,5 +1,4 @@
 import React from 'react';
-import './TodoListItem.scss';
 import {
   MdCheckBoxOutlineBlank,
   MdCheckBox,
@@ -8,11 +7,11 @@ import {
 import cn from 'classnames';
 import './TodoListItem.scss';
 
-const TodoListItem = ({ todo, onRemove, onToggle }) => {
+const TodoListItem = ({ todo, onRemove, onToggle, style }) => {
   const { id, text, checked } = todo;
 
   return (
-    <div>
+    <div className="TodoListItem-virtualized" style={style}>
       <div className="TodoListItem">
         <div
           className={cn('checkbox', { checked })}
@@ -29,4 +28,4 @@ const TodoListItem = ({ todo, onRemove, onToggle }) => {
   );
 };
 
-export default TodoListItem;
+export default React.memo(TodoListItem);
